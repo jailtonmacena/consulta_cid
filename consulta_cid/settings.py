@@ -40,6 +40,9 @@ INSTALLED_APPS = [
 
     # unaccent postgrsql
     'django.contrib.postgres' ,
+
+    # Minhas aplicações
+    'consulta_cids',
 ]
 
 MIDDLEWARE = [
