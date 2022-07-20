@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from consulta_cids.models import DoencaCategoria
+from consulta_cids.models import DoencaGrupo
+admin.site.register(DoencaCategoria)
+admin.site.register(DoencaGrupo)
