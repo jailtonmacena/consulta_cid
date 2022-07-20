@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+
+class Doencacategoria(models.Model):
+    """Definindo categoria e descricao de uma doença com CID10"""
+    categoria = models.CharField(max_length=4)
+    descricao = models.TextField()
