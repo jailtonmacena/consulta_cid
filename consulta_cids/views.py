@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+def home(request):
+    """Funcão para retonar a pagina inicial"""
+    return render(request, 'consulta_cids/home.html', {})
+
