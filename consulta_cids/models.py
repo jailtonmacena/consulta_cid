@@ -12,6 +12,10 @@ class DoencaCategoria(models.Model):
         return self.categoria
 
 
+    class Meta:
+        unique_together = ['categoria']
+
+
 class DoencaGrupo(models.Model):
     """Definindo categoriainicial e final para os grupos de doença com CID10"""
     categoria_inicial = models.CharField(max_length=4)
@@ -22,3 +26,7 @@ class DoencaGrupo(models.Model):
     def __str__(self):
         """Retorna uma representação em string do atributo categoria_inicial"""
         return self.categoria_inicial
+
+
+    class Meta:
+        unique_together = ['categoria_inicial', 'categoria_final']
