@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import DoencaCategoria
+from .models import DoencaCategoria, DoencaGrupo
 
 from django.core.paginator import Paginator
 
@@ -47,3 +47,22 @@ def lista_cids(request):
         }
 
     return render(request, 'consulta_cids/list_cids.html', context)
+
+
+def lista_grupo(request):
+    """Listando todos os grupos com seu cidinicial, cidfinal e descricao"""
+    cids_list = DoencaGrupo.objects.all()
+
+    # Criando paginação
+    p = Paginator(DoencaGrupo.objects.all(), 50)
+    page = request.GET.get('page')
+    cids_pagination = p.get_page(page)
+    num_pages = "a" * cids_pagination.paginator.num_pages
+
+    context = {
+        'cids_list': cids_list,
+        'cids_pagination': cids_pagination,
+        'num_pages': num_pages,
+    }
+
+    return render(request, 'consulta_cids/list_group.html', context)
