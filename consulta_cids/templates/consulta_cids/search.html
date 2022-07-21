@@ -1,0 +1,38 @@
+{% extends 'consulta_cids/base.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ListandoCIDS</title>
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            {% if cids %}
+            <table class="table table-dark table-hover " >
+                <thead class="bg-success" >
+                <tr>
+                    <th>CID</th>
+                    <th>Descrição</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for cid in cids %}
+                    <tr>
+                        <!--<td>{{ cid.id }}</td>-->
+                        <td>{{ cid.categoria }}</td>
+                        <td>{{ cid.descricao }}</td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+                {% else %}
+                <center>
+                    <h1>Busca Inválida</h1>
+                </center>
+                {% endif %}
+
+{% endblock %}
