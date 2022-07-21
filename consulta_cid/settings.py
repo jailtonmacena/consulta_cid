@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # boostrap4
+    'bootstrap4',
+
     # unaccent postgrsql
     'django.contrib.postgres' ,
 
@@ -132,3 +135,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Settings for django-bootstrap4
+BOOTSTRAP4 = {
+'include_jquery': True,
+}
