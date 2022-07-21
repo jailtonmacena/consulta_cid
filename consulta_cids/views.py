@@ -2,6 +2,8 @@ from django.shortcuts import render
 
 from .models import DoencaCategoria
 
+from django.core.paginator import Paginator
+
 def home(request):
     """Funcão para retonar a pagina inicial"""
     return render(request, 'consulta_cids/home.html', {})
@@ -26,3 +28,22 @@ def buscar_cids(request):
         return render(request, 'consulta_cids/search.html', context)
     else:
         return render(request,'consulta_cids/search_erro.html')
+
+
+def lista_cids(request):
+    """Listando todas as doencas com seu cid e descricao"""
+    cids_list = DoencaCategoria.objects.all()
+
+    # Criando paginação
+    p = Paginator(DoencaCategoria.objects.all(), 50)
+    page = request.GET.get('page')
+    cids_pagination = p.get_page(page)
+    num_pages = "a" * cids_pagination.paginator.num_pages
+
+    context = {
+        'cids_list': cids_list,
+        'cids_pagination': cids_pagination,
+        'num_pages': num_pages,
+        }
+
+    return render(request, 'consulta_cids/list_cids.html', context)
