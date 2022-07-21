@@ -1,0 +1,48 @@
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width", initial-scale="1">
+
+        <title>Consulta Cid</title>
+
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+
+        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" rel="stylesheet">
+        <script crossorigin="anonymous" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    </head>
+    <body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand text-success btn btn-outline-success"  href="/lista_cids/">Grupo CID-10</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="navbar-brand text-success btn btn-outline-success"  href="/lista_cids/">Lista CID-10</a>
+            </li>
+          <form class="form-inline my-2 my-lg-0" method="GET" action="/search_cid/" >
+            <div class="col-auto">
+                <input class="form-control me-2" type="search" id="search" name="search2" placeholder="Buscar pelo CID" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </div>
+            <div class="col-auto">
+              <input class="form-control me-2" type="search" id="search" name="search" placeholder="Buscar pela Descrição" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </div>
+          </form>
+        </div>
+      </nav>
+    </body>
+  </br>
+</html>
+
+{% block content %} {% endblock content %}
