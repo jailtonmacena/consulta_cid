@@ -1,0 +1,64 @@
+{% extends 'consulta_cids/base.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ListandoGrupoCIDS</title>
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            {% if cids_pagination %}
+            <table class="table table-dark table-hover " >
+                <thead class="bg-success" >
+                <tr>
+                    <th>CID Inicial</th>
+                    <th>CID Final</th>
+                    <th>Descrição</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for cid in cids_pagination %}
+                    <tr>
+                        <td>{{ cid.categoria_inicial }}</td>
+                        <td>{{ cid.categoria_final }}</td>
+                        <td>{{ cid.descricao }}</td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+                {% else %}
+                <center>
+                    <h1>Nehum item adicionado a Lista</h1>
+                </center>
+                {% endif %}
+
+       </br></br>
+
+<div class="container-fluid ">
+    <nav aria-label="Page navigation cids ">
+        <ul class="pagination pagination-lg ">
+        
+        {% if cids_pagination.has_previous %}
+            <li class="page-item"><a class="page-link bg-dark" href="?page=1">Primeiro</a></li>
+            <li class="page-item"><a class="page-link bg-dark" href="?page={{ cids_pagination.previous_page_number }}">Anterior</a></li>
+        
+        {% endif %}
+
+        <li class="page-item disabled"><a href="#" class="page-link bg-dark">Pagina {{ cids_pagination.number }} de {{ cids_pagination.paginator.num_pages }}</a></li>
+        
+        {% if cids_pagination.has_next %}
+            <li class="page-item"><a class="page-link bg-dark" href="?page={{ cids_pagination.next_page_number }}">Proximo</a></li>
+            <li class="page-item"><a class="page-link bg-dark" href="?page={{ cids_pagination.paginator.num_pages }}">Ultimo&raquo</a></li>
+        {% endif %}
+
+        </ul>
+    </nav>
+</div>
+    </body>
+</html>
+
+{% endblock content %}
